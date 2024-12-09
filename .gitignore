@@ -4,3 +4,4 @@ my-dotnet-tts/bin/
 my-dotnet-tts/bin/
 .angular/cache/
 my-dotnet-tts/bin/
+frontend/.env

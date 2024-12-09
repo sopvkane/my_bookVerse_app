@@ -1,5 +1,7 @@
 .authoring-page {
-  padding: 2rem;
+  max-height: 80vh; /* or an appropriate height */
+  overflow-y: auto; 
+  padding-bottom: 50px;
 
   h2 {
     font-size: 1.8rem;
