@@ -1,0 +1,32 @@
+<div class="controls-container">
+  <!-- Reading Controls -->
+  <button class="button" (click)="startReading()" [disabled]="isReading">
+    Start Reading
+  </button>
+  <button class="button" (click)="stopReading()" [disabled]="!isReading">
+    Stop Reading
+  </button>
+
+  <!-- Soundscapes Toggle -->
+  <div class="control-group">
+    <label>
+      <input type="checkbox" (change)="toggleSoundscapes($event)" />
+      Enable Soundscapes
+    </label>
+  </div>
+
+  <!-- Soundscape Selection and Controls -->
+  <div class="soundscape-controls" *ngIf="soundscapesEnabled">
+    <div class="control-group">
+      <label for="sound-select">Select Soundscape:</label>
+      <select id="sound-select" (change)="onSoundSelect($event)">
+        <option *ngFor="let sound of sounds" [value]="sound">{{ sound }}</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <button class="button" (click)="playSelectedSoundscape()">Play Soundscape</button>
+      <button class="button" (click)="stopSoundscape()">Stop Soundscape</button>
+    </div>
+  </div>
+</div>

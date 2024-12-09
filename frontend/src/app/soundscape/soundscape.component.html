@@ -1,0 +1,15 @@
+<div class="soundscape-container">
+  <h3>Soundscape Controls</h3>
+
+  <div class="form-group">
+    <label for="sound-select">Select Soundscape:</label>
+    <select id="sound-select" (change)="onSoundSelect($event)">
+      <option *ngFor="let sound of sounds" [value]="sound">{{ sound }}</option>
+    </select>
+  </div>
+
+  <div class="buttons">
+    <button (click)="playSoundscape()">Play Soundscape</button>
+    <button (click)="stopSoundscape()">Stop Soundscape</button>
+  </div>
+</div>

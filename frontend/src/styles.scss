@@ -1,0 +1,31 @@
+/* src/styles.scss */
+
+/* Import the Angular Material prebuilt theme */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* You can also choose other prebuilt themes like deeppurple-amber.css, pink-bluegrey.css, or purple-green.css */
+
+/* Optional: Add global styles below */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-icon {
+  font-family: 'Material Icons' !important;
+  font-feature-settings: 'liga';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  display: inline-block;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}

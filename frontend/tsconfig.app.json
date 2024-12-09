@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "typeRoots": ["node_modules/@types", "src/types"]
+    // Removed "types": []
+  },
+  "files": ["src/main.ts"], // Also removed "src/polyfills.ts" as previously suggested
+  "include": ["src/**/*.d.ts"]
+}

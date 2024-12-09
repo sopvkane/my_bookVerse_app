@@ -1,0 +1,36 @@
+/* src/app/app.component.scss */
+
+/* Make the whole page a flex container to position controls at bottom */
+:host, html, body {
+  height: 100%;
+  margin: 0;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* App header at top, main content in middle, controls at bottom */
+app-header {
+  flex: 0 0 auto;
+}
+
+app-main-content {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+app-controls {
+  flex: 0 0 auto;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+  padding: 10px;
+  z-index: 1000;
+}

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "31q0Q6GocuFTZI0hZiqmBAfMN6Hgu32i3H50aaYbsr8=",
+  "Source": "my-dotnet-tts",
+  "BasePath": "_content/my-dotnet-tts",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

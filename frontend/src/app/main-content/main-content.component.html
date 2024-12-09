@@ -1,0 +1,52 @@
+<div
+  class="main-content-container"
+  [ngStyle]="{
+    'background-image': bgImageUrl ? 'url(' + bgImageUrl + ')' : 'none',
+    'background-size': 'cover',
+    'background-position': 'center'
+  }"
+  *ngIf="selectedBook; else noBook"
+>
+  <div class="content-wrapper" [class.split-view]="illustrationImageUrl">
+    <div class="book-page">
+      <h2>{{ selectedBook.title }}</h2>
+      <p class="content">
+        <span
+          *ngFor="let w of words; let i = index"
+          [style.color]="w.sentimentColor"
+          [class.highlighted]="i === currentWordIndex"
+        >
+          {{ w.text }}
+        </span>
+      </p>
+
+      <!-- Generate Illustration Button -->
+      <button class="ai-image-button" (click)="generateIllustration()" [disabled]="isLoadingIllustration">
+        <mat-icon>image</mat-icon>
+        Generate Illustration
+      </button>
+
+      <!-- Loading Indicator for Illustration -->
+      <div *ngIf="isLoadingIllustration" class="loading">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        <p>Generating illustration...</p>
+      </div>
+
+      <!-- Error Message for Illustration -->
+      <div *ngIf="illustrationError" class="error">
+        <p>{{ illustrationError }}</p>
+      </div>
+    </div>
+
+    <div class="illustration-container" *ngIf="illustrationImageUrl">
+      <h3>Generated Illustration</h3>
+      <img [src]="illustrationImageUrl" alt="Illustration" class="illustration-image">
+    </div>
+  </div>
+</div>
+
+<ng-template #noBook>
+  <div class="no-book">
+    <p>No book selected. Please choose a book to display its content.</p>
+  </div>
+</ng-template>

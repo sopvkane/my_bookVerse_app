@@ -1,0 +1,162 @@
+.main-content-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto; /* In case content is taller than the viewport */
+}
+
+.content-wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  
+  /* Initially just one page centered */
+  .book-page {
+    max-width: 600px;
+    width: 100%;
+    min-height: 70vh;
+    background: #fafafa;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: justify;
+    transition: all 0.3s ease;
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .content {
+      font-size: 20px; /* Larger text */
+      line-height: 1.8; /* Comfortable spacing for reading */
+      color: #333;
+    }
+
+    .highlighted {
+      background-color: yellow;
+    }
+
+    .ai-image-button {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover:not([disabled]) {
+        background-color: #303f9f;
+      }
+
+      &:disabled {
+        background-color: #9fa8da;
+        cursor: not-allowed;
+      }
+
+      mat-icon {
+        margin-right: 8px;
+        font-size: 24px;
+      }
+    }
+
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 20px;
+
+      mat-progress-spinner {
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        color: #555;
+      }
+    }
+
+    .error {
+      color: red;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+
+  &.split-view {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+
+    .book-page {
+      margin: 0; /* Remove auto margin when side-by-side */
+      max-width: 400px; /* Narrower to mimic a page dimension */
+      height: auto;
+      text-align: justify;
+    }
+  }
+}
+
+.illustration-container {
+  background: #fafafa;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 400px;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 0.3s ease;
+
+  h3 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .illustration-image {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+  }
+}
+
+.no-book {
+  text-align: center;
+  margin-top: 50px;
+
+  p {
+    font-size: 18px;
+    color: #777;
+  }
+}

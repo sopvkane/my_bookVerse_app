@@ -1,0 +1,103 @@
+<header class="app-header">
+  <!-- Book Carousel Section -->
+  <div class="carousel-container">
+    <!-- Previous Slide Button -->
+    <button
+      mat-icon-button
+      (click)="previousSlide()"
+      class="nav-button prev-button"
+      aria-label="Previous Slide"
+      [disabled]="books.length === 0"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <!-- Carousel Slide -->
+    <div class="carousel-slide">
+      <!-- Previous Book -->
+      <mat-card
+        *ngIf="currentIndex > 0"
+        class="book-card prev-book"
+        (click)="selectBook(books[currentIndex - 1])"
+      >
+        <img
+          mat-card-image
+          [src]="books[currentIndex - 1]?.thumbnail || 'assets/images/placeholder-book.jpg'"
+          alt="{{ books[currentIndex - 1]?.title }}"
+          class="carousel-image"
+        />
+        <mat-card-title>{{ books[currentIndex - 1]?.title }}</mat-card-title>
+      </mat-card>
+
+      <!-- Current Book -->
+      <mat-card
+        *ngIf="books.length > 0"
+        class="book-card current-book"
+        (click)="selectBook(books[currentIndex])"
+        [ngClass]="{ selected: isSelected(books[currentIndex]) }"
+      >
+        <img
+          mat-card-image
+          [src]="books[currentIndex]?.thumbnail || 'assets/images/placeholder-book.jpg'"
+          alt="{{ books[currentIndex]?.title }}"
+          class="carousel-image"
+        />
+        <mat-card-title>{{ books[currentIndex]?.title }}</mat-card-title>
+      </mat-card>
+
+      <!-- Next Book -->
+      <mat-card
+        *ngIf="currentIndex < books.length - 1"
+        class="book-card next-book"
+        (click)="selectBook(books[currentIndex + 1])"
+      >
+        <img
+          mat-card-image
+          [src]="books[currentIndex + 1]?.thumbnail || 'assets/images/placeholder-book.jpg'"
+          alt="{{ books[currentIndex + 1]?.title }}"
+          class="carousel-image"
+        />
+        <mat-card-title>{{ books[currentIndex + 1]?.title }}</mat-card-title>
+      </mat-card>
+    </div>
+
+    <!-- Next Slide Button -->
+    <button
+      mat-icon-button
+      (click)="nextSlide()"
+      class="nav-button next-button"
+      aria-label="Next Slide"
+      [disabled]="books.length === 0"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+  <!-- Profile Section -->
+  <div class="profile-section">
+    <img
+      [src]="userProfileImage || 'assets/images/default-profile.jpg'"
+      alt="User Profile"
+      class="profile-image"
+    />
+    <span class="user-name">{{ userName }}</span>
+  </div>
+
+    <!-- Add this block in the header, preferably next to the "Create" button -->
+  <div class="home-section">
+    <button mat-icon-button routerLink="/home" aria-label="Home">
+      <mat-icon>home</mat-icon>
+    </button>
+  </div>
+
+  <!-- Create Section -->
+  <div class="create-section">
+    <div class="create-card" (click)="navigateToCreate()"> <!-- Use the method -->
+      <div class="create-icon">
+        <mat-icon>add</mat-icon>
+      </div>
+    </div>
+    <div class="create-title">Create</div>
+  </div>
+</header>
+
